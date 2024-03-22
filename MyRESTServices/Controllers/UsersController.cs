@@ -30,10 +30,6 @@ namespace MyRESTServices.Controllers
         }
 
 
-
-
-
-
         //GetAllWithRoles
         [HttpGet]
         public async Task<IEnumerable<UserDTO>> Get()
@@ -96,8 +92,6 @@ namespace MyRESTServices.Controllers
             foreach (var role in userWithRoles.Roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role.RoleName));
-                 
-        
             }
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
